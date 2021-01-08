@@ -1,0 +1,16 @@
+<template>
+    <!--<div class="c-container">-->
+        <lightning-layout vertical-align="stretch" multiple-rows="true"  >
+            <lightning-layout-item flexibility="auto" size="4" class="custom-box slds-box">
+                <c-select-operator onuserselected={handleUserSelected} label="Select User A"></c-select-operator>
+                <c-select-operator onuserselected={handleUserSelected} label="Select User B"></c-select-operator>
+            </lightning-layout-item>
+
+            <lightning-layout-item flexibility="auto" size="8" class="custom-box slds-box">
+                <template if:true={entitlementtoShow}>
+                    <lightning-tree-grid columns={gridColumns} data={entitlementtoShow} key-field="name" ></lightning-tree-grid>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    <!--</div>-->
+</template>

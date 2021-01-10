@@ -1,0 +1,31 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId">
+
+    <aura:attribute name="recordId" type="string" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    
+        <lightning:recordEditForm objectApiName="Contact" onsuccess="{!c.handleOnSuccess}">
+            <lightning:messages />
+            
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning:inputField aura:id="contactfield"  fieldName="FirstName"/>
+                    <lightning:inputField aura:id="account" fieldName="AccountId"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    
+                    <lightning:inputField aura:id="contactfield"  fieldName="LastName"/>
+                    <label for="email" class="slds-form-element__label slds-no-flex">Personal Email</label>
+                    <lightning:inputField aura:id="email" fieldName="Email" variant="label-hidden"/>
+                </div>
+                
+
+            
+            <lightning:button type="submit" label="Create New Contact"/>
+        </lightning:recordEditForm>
+
+        
+
+    
+
+</aura:component>	

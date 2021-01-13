@@ -1,0 +1,33 @@
+<aura:component implements="lightning:actionOverride,force:hasrecordId, flexipage:availableForRecordHome">
+    <aura:attribute name="needApprover" type="boolean" default="false"/>
+    <div class=" slds-form--horizontal slds-p-around_medium" >
+        <lightning:card title="Enter Expense" iconName="custom:expense__c"  >
+        <lightning:recordEditForm aura:id="editForm" objectApiName="Expense__c">
+        <lightning:messages/>
+        <lightning:layout multipleRows="true" >
+            <lightning:layoutItem size="6" padding="around-large">
+                <label class="slds-form-element__label" for="name">Name</label>
+                <lightning:inputField fieldName="Name"  variant="label-hidden" aura:id="name"/>
+                <label class="slds-form-element__label" for="name">Amount</label>
+                <lightning:inputField fieldName="Amount__c" variant="label-hidden" aura:id="amount" onchange="{!c.handleOnAmountChange}"/>
+                <aura:if isTrue="{!v.needApprover}">
+                    <label class="slds-form-element__label" for="name">Approver</label>
+                    <lightning:inputfield fieldName="Approver__c" variant="label-hidden" aura:id="approver"/>
+                </aura:if>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-large">
+                <label class="slds-form-element__label" for="client">Client</label>
+                <lightning:inputField fieldName="Client__c" variant="label-hidden" aura:id="client"/>
+                <label class="slds-form-element__label" for="date">Date</label>
+                <lightning:inputField fieldName="Date__c" variant="label-hidden" aura:id="date"/>
+                <label class="slds-form-element__label" for="status">Status</label>
+                <lightning:inputField fieldName="Status__c" variant="label-hidden" aura:id="status" required="{!v.needApprover}"/>
+            </lightning:layoutItem>
+
+
+        </lightning:layout>
+        </lightning:recordEditForm>
+        </lightning:card>
+    </div>
+
+</aura:component>	
